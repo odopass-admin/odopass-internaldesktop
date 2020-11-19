@@ -1,0 +1,46 @@
+{
+  "name": "ODOPASS",
+  "version": "1.0.0",
+  "description": "ODOPASS Monitoring",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder build --mac --win --publish never",
+    "deploy": "electron-builder build --mac --publish always",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/logodo.icns --prune=true --out=release-builds",
+    "package-win64": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win32 --arch=x64 --icon=assets/icons/win/YDEO.ico --prune=true --out=release-builds --version-string.CompanyName=YDEO --version-string.FileDescription=CE --version-string.ProductName=\"YDEO\"",
+    "package-win": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/YDEO.ico --prune=true --out=release-builds --version-string.CompanyName=YDEO --version-string.FileDescription=CE --version-string.ProductName=\"YDEO\"",
+    "package-linux": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/icon.1024x1024.png --prune=true --out=release-builds"
+  },
+  "build": {
+    "appId": "com.odopass.Odopassdesktop",
+    "mac": {
+      "category": "public.app-category.productivity"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/odotechstack/odopass-desktop.git"
+  },
+  "keywords": [
+    "ODOPASS"
+  ],
+  "author": "ODOPASS",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^10.1.1",
+    "electron-builder": "^22.9.1",
+    "electron-packager": "^14.2.1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "ejs-electron": "^2.1.1",
+    "electron-updater": "^4.3.5",
+    "express": "^4.17.1",
+    "helmet": "^4.1.0",
+    "morgan": "^1.10.0"
+  }
+}
